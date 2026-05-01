@@ -351,7 +351,7 @@ final class PhotoCollageViewModel: ObservableObject {
         }
 
         guard FileManager.default.isReadableFile(atPath: path) else {
-            folderPathErrorMessage = "The app cannot read this folder: " + path + "If you are running a sandboxed Xcode build, disable App Sandbox in Signing & Capabilities, or open the folder once with Choose Folder."
+            folderPathErrorMessage = "The app cannot read this folder: " + path + "\n\nIf you are running a sandboxed Xcode build, disable App Sandbox in Signing & Capabilities, or open the folder once with Choose Folder."
             NSSound.beep()
             return
         }
