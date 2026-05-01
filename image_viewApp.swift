@@ -1034,6 +1034,17 @@ struct ContentView: View {
             }
         }
 
+        if event.modifierFlags.contains(.command),
+           event.charactersIgnoringModifiers?.lowercased() == "f" {
+            focusedField = .folderPath
+
+            DispatchQueue.main.async {
+                viewModel.updatePathSuggestions()
+            }
+
+            return nil
+        }
+
         guard event.modifierFlags.intersection([.command, .option, .control]).isEmpty else {
             return event
         }
